@@ -17,9 +17,8 @@ RUN apk add --no-cache py3-pip py3-psycopg2
     #&& rm /var/lib/apt/lists/* -fR
 RUN mkdir -p /home/postgres \
     && chown postgres:postgres /home/postgres
-RUN apk add --no-cache gcc libc-dev linux-headers python3-dev \
- && pip3 install --upgrade patroni[etcd3]==$PATRONI_VERSION \
- && apk del gcc libc-dev linux-headers python3-dev
+RUN apk add --no-cache \
+ && PIP_BREAK_SYSTEM_PACKAGES=1 pip3 install --upgrade patroni[etcd3]==$PATRONI_VERSION
 
 RUN mkdir /data && chown postgres:postgres /data
 
