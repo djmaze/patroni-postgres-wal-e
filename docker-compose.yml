@@ -38,9 +38,9 @@ services:
     build: &build
       context: .
       args:
-        - POSTGRES_VERSION=18.1
-        - PATRONI_VERSION=4.1.0
-    image: mazzolino/patroni:4.1.0-postgres18.1
+        - POSTGRES_VERSION=18.4
+        - PATRONI_VERSION=4.1.4
+    image: mazzolino/patroni:4.1.4-postgres18.4
     hostname: dbnode1
     volumes:
         - db-1-data:/data
@@ -58,7 +58,7 @@ services:
 
   dbnode2:
     build: *build
-    image: mazzolino/patroni:4.1.0-postgres18.1
+    image: mazzolino/patroni:4.1.4-postgres18.4
     hostname: dbnode2
     volumes:
       - db-2-data:/data
@@ -76,7 +76,7 @@ services:
 
   dbnode3:
     build: *build
-    image: mazzolino/patroni:4.1.0-postgres18.1
+    image: mazzolino/patroni:4.1.4-postgres18.4
     hostname: dbnode3
     volumes:
       - db-3-data:/data
